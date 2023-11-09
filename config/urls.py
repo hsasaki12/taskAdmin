@@ -9,4 +9,5 @@ urlpatterns = [
     path('delete/<int:pk>/', views.delete),  # 削除ページ
     path('update/<int:pk>/', views.update),  # 更新ページ
     path('create/', views.create),  # 新規作成ページ
+    path('trim/', views.trim_view),  # 追記部分
 ]
