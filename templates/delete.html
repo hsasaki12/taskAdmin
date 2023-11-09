@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron text-center {{bg_color_class}}">
+  <h1>削除ページ</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<p>【{{ object.title }}】タスクを削除します。</p>
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger btn-sm" value="削除する">
+</form>
+{% endblock content %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>タスク管理アプリ</title>
+</head>
+
+<style>
+  /* bc == backgound color */
+  .bc0 {
+    background: white;
+  }
+
+  .bc1 {
+    background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);
+    background: linear-gradient(to right, #EAECC6, #2BC0E4);
+    color: white;
+  }
+
+  .bc2 {
+    background: -webkit-linear-gradient(to right, #ffffff, #abbaab);
+    background: linear-gradient(to right, #ffffff, #abbaab);
+  }
+
+  .bc3 {
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  }
+
+  .bc4 {
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    color: white
+  }
+</style>
+
+<body>
+  <!-- ページ上部エリア（ブロック） -->
+  {% block header %}
+  <div class="jumbotron text-center {{bg_color_class}}">
+    <h1>タスク管理アプリ</h1>
+    <p class="lead">This is a simple task app.</p>
+  </div>
+  {% endblock %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-8 m-auto">
+        <!-- メインコンテンツエリア（ブロック） -->
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center my-5">
+    <p><a href="/">トップページ</a></p>
+    <p>Copyright © Python Start Lab.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+  <script>
+    bsCustomFileInput.init();
+  </script>
+
+</body>
+
+</html>

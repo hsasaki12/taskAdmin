@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="jumbotron  text-center {{bg_color_class}}">
+  <h1>画像トリミングアプリ</h1>
+  <p class="lead">画像をアップロードしてトリミングしましょう。</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- このformではリクエストメソッドをPOSTにしています -->
+<form method="post" class="text-center row" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="m-auto col-sm-6 col-12">
+    <div class="custom-file my-3">
+      <input type="file" class="custom-file-input " name="image" required>
+      <label class="custom-file-label text-left">ファイルを選択...</label>
+    </div>
+    <!-- トリミングのエリアを選択 -->
+    <select class="custom-select my-3" name="area">
+      <option selected>トリミング範囲</option>
+      <option value="left_top">左上</option>
+      <option value="right_top">右上</option>
+      <option value="left_bottom">左下</option>
+      <option value="right_bottom">右下</option>
+    </select>
+    <div class="text-center">
+      <input type="submit" class="btn btn-outline-secondary" value="トリミング実行">
+    </div>
+  </div>
+</form>
+<hr class="my-5">
+<!-- 実行後に2つの画像を表示 -->
+<div class="row">
+  <div class="my-4 col-12 col-sm-6">
+    <h2>オリジナル画像</h2>
+    <!-- テンプレートタグのifでpathがある場合のみ表示 -->
+    {% if original_filename %}
+    <img src="{% static 'images' %}/{{ original_filename }}" width="100%" height="auto" style="max-width: auto;">
+    {% endif %}
+  </div>
+  <div class="my-4 col-12 col-sm-6">
+    <h2>トリミング画像</h2>
+    <!-- テンプレートタグのifでpathがある場合のみ表示 -->
+    {% if trimmed_filename %}
+    <img src="{% static 'images' %}/{{ trimmed_filename }}" width="100%" height="auto" style="max-width: auto;">
+    <p><font size='5'>{{area}}</font></p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

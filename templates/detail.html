@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron text-center {{bg_color_class}}">
+  <h1>詳細ページ</h1>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="card mb-2 text-left ">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4">
+        <img src="/{{object.image}}" width="100%" height="auto" style="max-width: 120px;">
+      </div>
+      <div class="col-8">
+        <h2 class="h3">{{ object.title }}</h2>
+        <p>{{ object.duedate }}まで</p>
+        <hr>
+        <h3>MEMO</h3>
+        <p>{{ object.memo }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

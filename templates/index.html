@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p class="text-right">
+  <a class="btn btn-success btn-sm" href="/create/">新規作成</a>
+</p>
+
+{% for object in object_list %}
+<div class="card mb-2 text-left ">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4">
+        <img src="/{{object.image}}" width="100%" height="auto" style="max-width: 120px;">
+      </div>
+      <div class="col-8">
+        <h2 class="h4">{{ object.title }}</h2>
+        <p>{{ object.duedate }}まで</p>
+        <p>
+          <a class="btn btn-outline-primary btn-sm" href="/detail/{{object.pk}}/">詳細</a>
+          <a class="btn btn-outline-success btn-sm" href="/update/{{object.pk}}/">編集</a>
+          <a class="btn btn-outline-danger btn-sm" href="/delete/{{object.pk}}/">削除</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
